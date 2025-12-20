@@ -6,8 +6,18 @@ const { db } = require('./firebase.js')
 
 app.get('/getList', async (req, res) => {
     const newapps = db.collection('trust')
+    
+    newapps.get()
+    .then(snapshot => {
+        snapshot.forEach(doc => {
+            console.log(doc.id, '=>', doc.data());
+        });
+    })
+    .catch(err => {
+        console.log('Error getting documents', err);
+    });
 
-    const doc = await newapps.get()
+    // const doc = await newapps.get()
 
     // if(!doc.exists){
     //     res.status(404)
