@@ -6,7 +6,7 @@ const { db } = require('./firebase.js')
 
 app.get('/getList', async (req, res) => {
     const newapps = db.collection('trust')
-    
+
     newapps.get()
     .then(snapshot => {
         snapshot.forEach(doc => {
@@ -23,7 +23,7 @@ app.get('/getList', async (req, res) => {
     //     res.status(404)
     // }
   
-    res.status(200).json(doc)
+    // res.status(200).json(doc)
 })
 
 app.listen(port, () => {
