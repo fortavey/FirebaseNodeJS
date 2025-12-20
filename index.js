@@ -13,7 +13,7 @@ app.get('/getList', async (req, res) => {
     //     res.status(404)
     // }
   
-    res.status(200).json(doc.data)
+    res.status(200).json(doc)
 })
 
 app.listen(port, () => {
