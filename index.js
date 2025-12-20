@@ -11,19 +11,14 @@ app.get('/getList', async (req, res) => {
 
     newapps.get()
     .then(snapshot => {
-        snapshot.forEach((doc, idx) => {
-            console.log(idx, doc.data())
+        snapshot.forEach(doc => {
+          const item = doc.data()
+          console.log(item)
         });
     })
     .catch(err => {
         console.log('Error getting documents', err);
     });
-
-    // const doc = await newapps.get()
-
-    // if(!doc.exists){
-    //     res.status(404)
-    // }
   
     
     // res.status(200).json(res)
