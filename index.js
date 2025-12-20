@@ -5,7 +5,7 @@ const port = 3123
 const { db } = require('./firebase.js')
 
 app.get('/getList', async (req, res) => {
-    const newapps = db.collection('newapps')
+    const newapps = db.collection('trust')
 
     const doc = await newapps.get()
 
