@@ -25,7 +25,9 @@ app.get('/getList', async (req, res) => {
     //     res.status(404)
     // }
   
-    res.status(200).json(res)
+    console.log(res);
+    
+    // res.status(200).json(res)
 })
 
 app.listen(port, () => {
