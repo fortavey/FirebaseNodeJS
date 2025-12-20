@@ -14,13 +14,14 @@ app.get('/getList', async (req, res) => {
           const item = doc.data()
           res1.push(item)
         });
+        res.status(200).json(res1)
     })
     .catch(err => {
         console.log('Error getting documents', err);
     });
   
     
-    res.status(200).json(res1)
+    
 })
 
 app.listen(port, () => {
