@@ -11,8 +11,8 @@ app.get('/getList', async (req, res) => {
 
     newapps.get()
     .then(snapshot => {
-        snapshot.forEach(doc => {
-            res.push(doc.data())
+        snapshot.forEach((doc, idx) => {
+            console.log(idx, doc.data())
         });
     })
     .catch(err => {
@@ -25,7 +25,6 @@ app.get('/getList', async (req, res) => {
     //     res.status(404)
     // }
   
-    console.log(res);
     
     // res.status(200).json(res)
 })
