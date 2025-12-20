@@ -9,11 +9,11 @@ app.get('/getList', async (req, res) => {
 
     const doc = await newapps.get()
 
-    // if(!doc.exists()){
+    // if(!doc.exists){
     //     res.status(404)
     // }
   
-    res.status(200).json(doc.data())
+    res.status(200).json(doc.data)
 })
 
 app.listen(port, () => {
