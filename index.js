@@ -4,13 +4,15 @@ const port = 3123
 
 const { db } = require('./firebase.js')
 
+const res = []
+
 app.get('/getList', async (req, res) => {
     const newapps = db.collection('trust')
 
     newapps.get()
     .then(snapshot => {
         snapshot.forEach(doc => {
-            console.log(doc.id, '=>', doc.data());
+            res.push(doc.data())
         });
     })
     .catch(err => {
@@ -23,7 +25,7 @@ app.get('/getList', async (req, res) => {
     //     res.status(404)
     // }
   
-    // res.status(200).json(doc)
+    res.status(200).json(res)
 })
 
 app.listen(port, () => {
