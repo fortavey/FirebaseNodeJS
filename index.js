@@ -5,25 +5,22 @@ const port = 3123
 const { db } = require('./firebase.js')
 
 app.get('/getList', async (req, res) => {
-    const newapps = db.collection('trust')
-    const res1 = []
+    const newapps = db.collection('newapps')
+    const output = []
 
     newapps.get()
     .then(snapshot => {
         snapshot.forEach(doc => {
           const item = doc.data()
-          res1.push(item)
+          output.push(item)
         });
-        res.status(200).json(res1)
+        res.status(200).json(output)
     })
     .catch(err => {
         console.log('Error getting documents', err);
-    });
-  
-    
-    
+    }); 
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server start on port ${port}...`)
 })
