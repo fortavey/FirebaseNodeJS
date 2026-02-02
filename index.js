@@ -12,6 +12,8 @@ app.get('/getList', async (req, res) => {
     .then(snapshot => {
         snapshot.forEach(doc => {
           const item = doc.data()
+          item.id = doc.id
+          item.isDone = false
           output.push(item)
         });
         res.status(200).json(output)
